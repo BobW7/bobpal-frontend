@@ -1,7 +1,7 @@
 <template>
   <van-nav-bar
       title="标题"
-      left-text="返回"
+      left-text=""
       right-text="按钮"
       left-arrow
       @click-left="onClickLeft"
@@ -12,7 +12,7 @@
       <van-icon name="search" size="18" />
     </template>
   </van-nav-bar>
-  <van-search v-model="value" placeholder="请输入搜索关键词" />
+
   <div id="content">
     <router-view/>
   </div>
@@ -28,10 +28,16 @@
 import {Toast} from "vant";
 import {ref} from "vue";
 import Index from "../pages/Index.vue";
-import Team from "../pages/Team.vue";
+import Team from "../pages/TeamPage.vue";
+import {useRouter} from "vue-router";
 
-const onClickLeft = () => alert('left');
-const onClickRight = () => alert('right');
+const router = useRouter();
+const onClickLeft = () => {
+  router.push('/')
+};
+const onClickRight = () => {
+  router.push('/search')
+};
 
 const value = ref('');
 const active = ref("index");

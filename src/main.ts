@@ -1,14 +1,14 @@
 import { createApp } from 'vue'
-import { NavBar } from 'vant';
-import { Button } from 'vant';
 //引入router组件
 import * as VueRouter from 'vue-router';
-
 import App from './App.vue'
 import routes from "./config/route.ts";
+//全量引入忍不了了
+import Vant from 'vant';
+import 'vant/lib/index.css';
 const app = createApp(App);
-app.use(NavBar);
-app.use(Button);
+
+app.use(Vant);
 const router = VueRouter.createRouter({
     //内部提供history模式的实现
     history:VueRouter.createMemoryHistory(),
