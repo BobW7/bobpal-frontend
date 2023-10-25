@@ -140,6 +140,11 @@
     "@vue/compiler-dom" "3.3.6"
     "@vue/shared" "3.3.6"
 
+"@vue/devtools-api@^6.5.0":
+  "integrity" "sha512-+KpckaAQyfbvshdDW5xQylLni1asvNSGme1JFs8I1+/H5pHEhqUKMEQD/qn3Nx5+/nycBq11qAEi8lk+LXI2dA=="
+  "resolved" "https://registry.npmjs.org/@vue/devtools-api/-/devtools-api-6.5.1.tgz"
+  "version" "6.5.1"
+
 "@vue/language-core@1.8.20":
   "integrity" "sha512-vNJaqjCTSrWEr+erSq6Rq0CqDC8MOAwyxirxwK8esOxd+1LmAUJUTG2p7I84Mj1Izy5uHiHQAkRTVR2QxMBY+A=="
   "resolved" "https://registry.npmjs.org/@vue/language-core/-/language-core-1.8.20.tgz"
@@ -595,6 +600,13 @@
   optionalDependencies:
     "fsevents" "~2.3.2"
 
+"vue-router@^4.2.5":
+  "integrity" "sha512-DIUpKcyg4+PTQKfFPX88UWhlagBEBEfJ5A8XDXRJLUnZOvcpMF8o/dnL90vpVkGaPbjvXazV/rC1qBKrZlFugw=="
+  "resolved" "https://registry.npmjs.org/vue-router/-/vue-router-4.2.5.tgz"
+  "version" "4.2.5"
+  dependencies:
+    "@vue/devtools-api" "^6.5.0"
+
 "vue-template-compiler@^2.7.14":
   "integrity" "sha512-yQxjxMptBL7UAog00O8sANud99C6wJF+7kgbcwqkvA38vCGF7HWE66w0ZFnS/kX5gSoJr/PQ4/oS3Ne2pW37Og=="
   "resolved" "https://registry.npmjs.org/vue-template-compiler/-/vue-template-compiler-2.7.15.tgz"
@@ -603,7 +615,7 @@
     "de-indent" "^1.0.2"
     "he" "^1.2.0"
 
-"vue-tsc@^1.8.20":
+"vue-tsc@^1.8.5":
   "integrity" "sha512-bIADlyxJl+1ZWQQHAi47NZoi2iTiw/lBwQLL98wXROcQlUuGVtyroAIiqvto9pJotcyhtU0JbGvsHN6JN0fYfg=="
   "resolved" "https://registry.npmjs.org/vue-tsc/-/vue-tsc-1.8.20.tgz"
   "version" "1.8.20"
@@ -612,7 +624,7 @@
     "@vue/typescript" "1.8.20"
     "semver" "^7.5.4"
 
-"vue@^3.0.0", "vue@^3.2.25", "vue@^3.3.4", "vue@2 || 3", "vue@3.3.6":
+"vue@^3.0.0", "vue@^3.2.0", "vue@^3.2.25", "vue@^3.3.4", "vue@2 || 3", "vue@3.3.6":
   "integrity" "sha512-jJIDETeWJnoY+gfn4ZtMPMS5KtbP4ax+CT4dcQFhTnWEk8xMupFyQ0JxL28nvT/M4+p4a0ptxaV2WY0LiIxvRg=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-3.3.6.tgz"
   "version" "3.3.6"
