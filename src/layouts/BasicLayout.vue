@@ -7,14 +7,20 @@
       @click-left="onClickLeft"
       @click-right="onClickRight"
   >
-    //使用插槽
+
     <template #right>
       <van-icon name="search" size="18" />
     </template>
   </van-nav-bar>
-
   <van-search v-model="value" placeholder="请输入搜索关键词" />
-
+  <div id="content">
+    <template v-if="active === 'index'">
+      <Index/>
+    </template>
+    <template v-if="active === 'team'">
+      <Team/>
+    </template>
+  </div>
   <van-tabbar v-model="active" @change="onChange">
     <van-tabbar-item icon="home-o" name="index">主页</van-tabbar-item>
     <van-tabbar-item icon="search" name="team">队伍页</van-tabbar-item>
@@ -26,6 +32,8 @@
 <script setup>
 import {Toast} from "vant";
 import {ref} from "vue";
+import Index from "../pages/Index.vue";
+import Team from "../pages/Team.vue";
 
 const onClickLeft = () => alert('left');
 const onClickRight = () => alert('right');
