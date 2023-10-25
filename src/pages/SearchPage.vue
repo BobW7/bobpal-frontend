@@ -20,6 +20,7 @@ const onSearch = (val) => {
 };
 const onCancel = () => {
   searchText.value = '';
+  //取消时一般搜过了，所以要重新给一份数据
   tagList.value = originTagList;
 };
 
