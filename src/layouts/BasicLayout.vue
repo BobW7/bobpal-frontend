@@ -1,4 +1,5 @@
 <template>
+<!--todo 动态显示页面标题，微调格式-->
   <van-nav-bar
       title="标题"
       left-text=""
