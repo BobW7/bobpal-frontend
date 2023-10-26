@@ -600,7 +600,7 @@
   optionalDependencies:
     "fsevents" "~2.3.2"
 
-"vue-router@^4.2.5":
+"vue-router@^4":
   "integrity" "sha512-DIUpKcyg4+PTQKfFPX88UWhlagBEBEfJ5A8XDXRJLUnZOvcpMF8o/dnL90vpVkGaPbjvXazV/rC1qBKrZlFugw=="
   "resolved" "https://registry.npmjs.org/vue-router/-/vue-router-4.2.5.tgz"
   "version" "4.2.5"
