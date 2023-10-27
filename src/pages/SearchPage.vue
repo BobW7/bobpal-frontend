@@ -31,7 +31,6 @@ const close = () => {
 
 //已选中的标签
 const activeIds = ref([]);
-//
 const activeIndex = ref(0);
 
 //原始数组

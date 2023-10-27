@@ -1,13 +1,33 @@
 <script setup lang="ts">
 
 import {useRoute, useRouter} from "vue-router";
-import {ref} from "vue";
-import index from "./Index.vue";
-
+import {onMounted, ref} from "vue";
+import myAxios from "../plugins/myAxios.js"
+import {Toast} from "vant";
+import qs from 'qs';
 
 const route = useRoute()
-//取到传来的标签
 const {tags} = route.query
+
+
+onMounted(()=>{
+  myAxios.get('/user/search/tags',{
+    params:{
+      tagNameList:tags
+    },
+    paramsSerializer: params => {
+      return qs.stringify(params,{indices:false})
+    }
+  }).then(function (response){
+    console.log('/user/search/tags success',response);
+    Toast.success('请求成功');
+  }).catch(function (error){
+    console.log('/user/search/tags error',error);
+    Toast.fail('请求失败');
+  })
+})
+//取到传来的标签
+
 //假数据
 const MockUser = {
   id: 6668,
