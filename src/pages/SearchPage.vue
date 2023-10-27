@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {ref} from 'vue'
-import {Toast} from "vant";
+import {useRouter} from "vue-router";
 
 
 const searchText = ref('');
@@ -63,6 +63,18 @@ const doClose = (tag)=>{
    return  item !== tag;
   })
 }
+const router = useRouter()
+/**
+ * 执行搜索后跳转
+ */
+const doSearchResult = () => {
+  router.push({
+    path: '/user/list',
+    query: {
+      tags:activeIds.value
+    }
+  })
+}
 </script>
 
 <template>
@@ -74,6 +86,7 @@ const doClose = (tag)=>{
         @search="onSearch"
         @cancel="onCancel"
     />
+  </form>
     <van-divider content-position="left">已选标签</van-divider>
     <div v-if="activeIds.length === 0">请选择标签</div>
     <van-row gutter="16" style="padding: 0 16px" >
@@ -82,7 +95,6 @@ const doClose = (tag)=>{
           {{ tag }}
         </van-tag>
       </van-col>
-
     </van-row>
     <van-divider content-position="left">选择标签</van-divider>
     <van-tree-select
@@ -90,8 +102,10 @@ const doClose = (tag)=>{
         v-model:main-active-index="activeIndex"
         :items="tagList"
     />
+<div style="padding: 12px">
+  <van-button block type="primary" @click="doSearchResult">搜索</van-button>
+</div>
 
-  </form>
 
 </template>
 
