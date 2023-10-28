@@ -93,6 +93,7 @@ const MockUser = {
       <van-button size="mini">联系我</van-button>
     </template>
   </van-card>
+  <van-empty v-if="!userList || userList.length < 1" description="搜索结果为空"/>
 
 
 </template>
