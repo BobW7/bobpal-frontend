@@ -8,10 +8,24 @@ import qs from 'qs';
 
 const route = useRoute()
 const {tags} = route.query
+//用户列表
+//const userList = ref([MockUser]);
+const userList = ref([]);
 
-
-onMounted(()=>{
-  myAxios.get('/user/search/tags',{
+//url是后端接口地址
+//@RequestMapping("/user")
+//...
+// @GetMapping("/search/tags")
+// public BaseResponse<List<User>> searchUsersByTags(@RequestParam(required = false) List<String> tagNameList){
+//     if (CollectionUtils.isEmpty(tagNameList)) {
+//       throw new BusinessException(ErrorCode.PARAMS_ERROR);
+//     }
+//     List<User> userList = userService.searchUsersByTags(tagNameList);
+//     return ResultUtils.success(userList);
+//
+//   }
+onMounted(async ()=>{
+ const userListData =await myAxios.get('/user/search/tags',{
     params:{
       tagNameList:tags
     },
@@ -21,10 +35,16 @@ onMounted(()=>{
   }).then(function (response){
     console.log('/user/search/tags success',response);
     Toast.success('请求成功');
+    console.log(response);
+    return  response.data?.data;
   }).catch(function (error){
     console.log('/user/search/tags error',error);
     Toast.fail('请求失败');
   })
+  console.log(userListData);
+  if(userListData){
+    userList.value = userListData;
+  }
 })
 //取到传来的标签
 
@@ -44,8 +64,7 @@ const MockUser = {
   tags: ['SF','PF','NO-THREE','老寒腿','黄油手','神经刀','喂史者','YouKnow哥'],
   createTime: new Date(),
 }
-//用户列表
-const userList = ref([MockUser]);
+
 
 </script>
 
