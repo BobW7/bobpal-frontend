@@ -1,3 +1,4 @@
+<!--suppress TypeScriptValidateTypes -->
 <script setup lang="ts">
 
 import {useRoute, useRouter} from "vue-router";
@@ -5,6 +6,7 @@ import {onMounted, ref} from "vue";
 import myAxios from "../plugins/myAxios.js"
 import {Toast} from "vant";
 import qs from 'qs';
+import {UserType} from "../modules/user";
 
 const route = useRoute()
 const {tags} = route.query
@@ -25,7 +27,7 @@ const userList = ref([]);
 //
 //   }
 onMounted(async ()=>{
- const userListData =await myAxios.get('/user/search/tags',{
+ const userListData:UserType = await myAxios.get('/user/search/tags',{
     params:{
       tagNameList:tags
     },
@@ -43,6 +45,13 @@ onMounted(async ()=>{
   })
   console.log(userListData);
   if(userListData){
+    //字符串转JSON
+    //   定义用户类型时: tags: string[]; 是字符串数组
+    userListData.forEach(user =>{
+      if(user.tags){
+        user.tags = JSON.parse(user.tags);
+      }
+    })
     userList.value = userListData;
   }
 })
