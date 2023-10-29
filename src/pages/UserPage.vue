@@ -1,5 +1,11 @@
 <script setup lang="ts">
 import {useRoute, useRouter} from "vue-router";
+import {onMounted} from "vue";
+import {UserType} from "../modules/user";
+import myAxios from "../plugins/myAxios.ts";
+import qs from "qs";
+import {Toast} from "vant";
+import axios from "axios";
 
 const user = {
   id: 1,

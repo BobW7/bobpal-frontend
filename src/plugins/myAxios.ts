@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios, {AxiosInstance} from "axios";
 
-const myAxios = axios.create({
+const myAxios :AxiosInstance = axios.create({
     baseURL:'http://localhost:8080/api'
 })
 // 添加请求拦截器

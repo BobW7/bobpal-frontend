@@ -3,7 +3,7 @@
 
 import {useRoute, useRouter} from "vue-router";
 import {onMounted, ref} from "vue";
-import myAxios from "../plugins/myAxios.js"
+import myAxios from "../plugins/myAxios.ts"
 import {Toast} from "vant";
 import qs from 'qs';
 import {UserType} from "../modules/user";
