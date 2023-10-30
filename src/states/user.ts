@@ -10,5 +10,6 @@ const getCurrentUserState = ():UserType => {
 }
 
 export {
-    setCurrentUserState,getCurrentUserState
+    setCurrentUserState,
+    getCurrentUserState
 }
