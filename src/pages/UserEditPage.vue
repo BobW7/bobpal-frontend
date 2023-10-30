@@ -16,9 +16,10 @@ const editUser = ref({
   currentValue: route.query.currentValue
 })
 
-const currentUser = getCurrentUser();
+
 
 const onSubmit = async () => {
+  const currentUser = await getCurrentUser();
   if(!currentUser){
     Toast.fail('用户未登录！');
     return;
