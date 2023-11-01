@@ -44,6 +44,9 @@ const value = ref('');
 const active = ref("index");
 const onChange = (index) => Toast(`标签 ${index}`);
 </script>
-<style scoped>
 
+<style scoped>
+#content{
+  padding-bottom: 60px
+}
 </style>

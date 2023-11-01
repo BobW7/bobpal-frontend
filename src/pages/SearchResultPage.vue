@@ -7,6 +7,7 @@ import myAxios from "../plugins/myAxios.ts"
 import {Toast} from "vant";
 import qs from 'qs';
 import {UserType} from "../modules/user";
+import UserCardList from "../components/UserCardList.vue";
 
 const route = useRoute()
 const {tags} = route.query
@@ -78,21 +79,7 @@ const MockUser = {
 </script>
 
 <template>
-  <van-card
-      v-for="user in userList"
-      :desc="user.profile"
-      :title="`${user.username} (#${user.planetCode})`"
-      :thumb="user.avatarUrl"
-  >
-    <template #tags>
-      <van-tag plain type="danger" v-for="tag in user.tags" style="margin-right: 8px;margin-top: 8px">
-        {{tag}}
-      </van-tag>
-    </template>
-    <template #footer>
-      <van-button size="mini">联系我</van-button>
-    </template>
-  </van-card>
+ <user-card-list :user-list="userList"/>
   <van-empty v-if="!userList || userList.length < 1" description="搜索结果为空"/>
 
 
