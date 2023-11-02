@@ -48,6 +48,7 @@ onMounted(async ()=>{
   if(userListData){
     //字符串转JSON
     //   定义用户类型时: tags: string[]; 是字符串数组
+    //@ts-ignore
     userListData.forEach(user =>{
       if(user.tags){
         user.tags = JSON.parse(user.tags);
