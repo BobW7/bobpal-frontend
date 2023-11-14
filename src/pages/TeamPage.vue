@@ -1,13 +1,20 @@
-<script lang="ts">
-import {defineComponent} from 'vue'
+<script setup>
 
-export default defineComponent({
-  name: "Team"
-})
+import {useRouter} from "vue-router";
+
+const router = useRouter();
+//跳转到加入队伍页
+const doJoinTeam = () =>{
+  router.push({
+    path: "/team/add"
+  })
+}
 </script>
 
 <template>
- Team页面
+  <div id="teamPage">
+    <van-button type="primary" @click="doJoinTeam">加入队伍</van-button>
+  </div>
 </template>
 
 <style scoped>

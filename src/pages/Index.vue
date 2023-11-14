@@ -29,7 +29,7 @@ onMounted(async ()=>{
     return  response?.data?.records;
   })
       .catch(function (error){
-    console.log('/user/recommend error',error);
+    console.log('/user/recommend error',error); 
     Toast.fail('请求失败');
   })
   console.log(userListData);
