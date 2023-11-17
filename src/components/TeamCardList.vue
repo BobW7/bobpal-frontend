@@ -5,6 +5,15 @@ import {teamStatusEnum} from "../constants/teamConstants.ts";
 import CelticsStamp from '../assets/CelticsStamp.png';
 import myAxios from "../plugins/myAxios.ts";
 import {Toast} from "vant";
+import {getCurrentUser} from "../services/user.ts";
+import {getCurrentUserState} from "../states/user.ts";
+import {onMounted, ref} from "vue";
+import {useRouter} from "vue-router";
+
+const currentUser = ref();
+onMounted(async ()=>{
+  currentUser.value = await getCurrentUser();
+})
 
 interface TeamCardListProps{
   teamList: TeamType[];
@@ -22,11 +31,26 @@ const doJoinTeam =async (id: number) =>{
  const res = await myAxios.post("/team/join",{
     teamId:id
   })
+  //@ts-ignore
   if(res?.code === 0){
     Toast.success('加入成功！');
   }else{
+    //@ts-ignore
     Toast.fail('加入失败！' + (res.description ?`,${res.description}`:''));
   }
+}
+const router = useRouter();
+/**
+ * 跳转至更新队伍页
+ * @param id
+ */
+const doUpdateTeam = (id: number)=>{
+  router.push({
+    path:"/team/update",
+    query:{
+      id,
+    }
+  })
 }
 </script>
 
@@ -55,6 +79,15 @@ const doJoinTeam =async (id: number) =>{
     </template>
     <template #footer>
       <van-button size="small" type="primary" plain @click="doJoinTeam(team.id)">加入队伍</van-button>
+      <van-button v-if="team.createUser?.id === currentUser?.id" size="small" plain
+                  @click="doUpdateTeam(team.id)">更新队伍
+      </van-button>
+      <van-button v-if="team.createUser?.id === currentUser?.id" size="small" plain
+                  @click="doUpdateTeam(team.id)">退出队伍
+      </van-button>
+      <van-button v-if="team.createUser?.id === currentUser?.id" size="small" plain
+                  @click="doUpdateTeam(team.id)">解散队伍
+      </van-button>
     </template>
   </van-card>
 </template>
