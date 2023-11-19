@@ -10,12 +10,6 @@ import {Toast} from "vant";
 const router = useRouter();
 const teamList = ref([]);
 const searchText = ref('');
-//跳转到加入队伍页
-const doJoinTeam = () =>{
-  router.push({
-    path: "/team/add"
-  })
-}
 
 //只会在页面加载时触发一次
 onMounted(  () =>{
@@ -23,14 +17,14 @@ onMounted(  () =>{
 })
 
 const onSearch =async (val) => {
-  listTeam(val)
+  await listTeam(val)
 };
 /**
  * 搜索队伍
  * @param val
  */
 const listTeam =async (val = '')=>{
-  const res = await myAxios.get("/team/list",{
+  const res = await myAxios.get("/team/list/my/create",{
     params: {
       searchText:val,
     }
@@ -41,6 +35,11 @@ const listTeam =async (val = '')=>{
   }else {
     Toast.fail('加载队伍失败！');
   }
+}
+const doJoinTeam = () =>{
+  router.push({
+    path: "/team/add"
+  })
 }
 
 </script>
