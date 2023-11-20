@@ -34,6 +34,7 @@ const doJoinTeam =async (id: number) =>{
   //@ts-ignore
   if(res?.code === 0){
     Toast.success('加入成功！');
+    window.location.reload();
   }else{
     //@ts-ignore
     Toast.fail('加入失败！' + (res.description ?`,${res.description}`:''));
@@ -62,6 +63,7 @@ const doQuitTeam = async (id: number) => {
   });
   if(res.code === 0){
     Toast.success('退出成功！');
+    window.location.reload();
   }else{
     Toast.fail('退出失败！'+(res.description?`,${res.description}`:''));
   }
@@ -77,6 +79,7 @@ const doDeleteTeam = async (id :number)=>{
   });
   if(res.code === 0){
     Toast.success('解散成功！');
+    window.location.reload();
   }else{
     Toast.fail('解散失败！'+(res.description?`,${res.description}`:''));
   }
@@ -108,14 +111,17 @@ const doDeleteTeam = async (id :number)=>{
       </div>
     </template>
     <template #footer>
-      <van-button size="small" type="primary" plain @click="doJoinTeam(team.id)">加入队伍</van-button>
+      <van-button size="small" type="primary" v-if="team.createUser?.id !== currentUser?.id && !team.hasJoin" plain
+                  @click="doJoinTeam(team.id)">
+        加入队伍
+      </van-button>
       <van-button v-if="team.createUser?.id === currentUser?.id" size="small" plain
                   @click="doUpdateTeam(team.id)">更新队伍
       </van-button>
-      <van-button v-if="team.createUser?.id === currentUser?.id" size="small" plain
+      <van-button v-if="team.createUser?.id !== currentUser?.id && team.hasJoin" size="small" plain
                   @click="doQuitTeam(team.id)">退出队伍
       </van-button>
-      <van-button v-if="team.createUser?.id === currentUser?.id" size="small" plain
+      <van-button v-if="team.createUser?.id === currentUser?.id" size="small" type="danger"
                   @click="doDeleteTeam(team.id)">解散队伍
       </van-button>
     </template>
