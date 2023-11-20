@@ -59,7 +59,7 @@ const res = await myAxios.post('/user/login',{
         登录
       </van-button>
       <van-button style="margin-top: 10px" color="#FFA034" round block type="primary"
-                  to="/user/signup">
+                  to="/user/register">
         注册
       </van-button>
     </div>

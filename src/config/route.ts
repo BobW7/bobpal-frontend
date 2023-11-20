@@ -10,6 +10,8 @@ import TeamUpdatePage from "../pages/TeamUpdatePage.vue";
 import UserTeamCreatePage from "../pages/UserTeamCreatePage.vue";
 import UserTeamJoinPage from "../pages/UserTeamJoinPage.vue";
 import UserUpdatePage from "../pages/UserUpdatePage.vue";
+import UserRegistSelectTag from "../pages/UserRegistSelectTag.vue";
+import UserRegisterPage from "../pages/UserRegisterPage.vue";
 
 
 // @ts-ignore
@@ -27,6 +29,8 @@ const routes =
         {path: '/team/update', component: TeamUpdatePage},
         {path: '/user/team/create', title: '我创建的',component: UserTeamCreatePage},
         {path: '/user/team/join', title: '我加入的',component: UserTeamJoinPage},
+        {path: '/user/register/selectTags', title: '选择标签',component: UserRegistSelectTag},
+        {path: '/user/register', title: '注册',component: UserRegisterPage},
 
     ]
 
