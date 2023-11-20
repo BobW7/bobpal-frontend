@@ -16,7 +16,7 @@
   <div id="content">
     <router-view/>
   </div>
-  <van-tabbar v-if="route.path !== '/user/login'" route @change="onChange">
+  <van-tabbar v-if="route.path !== '/user/login'" route>
     <van-tabbar-item icon="home-o" to="/" name="index">主页</van-tabbar-item>
     <van-tabbar-item icon="search" to="/team" name="team">队伍页</van-tabbar-item>
     <van-tabbar-item icon="friends-o" to="/user" name="user">个人</van-tabbar-item>
@@ -58,7 +58,6 @@ const value = ref('');
 
 
 const active = ref("index");
-const onChange = (index) => Toast(`标签 ${index}`);
 </script>
 
 <style scoped>

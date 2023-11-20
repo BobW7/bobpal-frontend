@@ -28,7 +28,14 @@ const res = await myAxios.post('/user/login',{
 </script>
 
 <template>
-  <van-nav-bar title="BobPal" />
+  <van-nav-bar title="登录" />
+  <van-row justify="center">
+    <van-image
+        width="343"
+        src="../src/assets/celtics_secondary.svg"
+        style="background-position:center"
+    />
+  </van-row>
   <van-form @submit="onSubmit">
     <van-cell-group inset>
       <van-field
@@ -47,9 +54,13 @@ const res = await myAxios.post('/user/login',{
           :rules="[{ required: true, message: '请填写密码' }]"
       />
     </van-cell-group>
-    <div style="margin: 16px;">
-      <van-button round block type="primary" native-type="submit">
-        提交
+    <div style="margin: 30px 16px 16px;">
+      <van-button style="margin-top: 10px" round block type="primary" native-type="submit">
+        登录
+      </van-button>
+      <van-button style="margin-top: 10px" color="#FFA034" round block type="primary"
+                  to="/user/signup">
+        注册
       </van-button>
     </div>
   </van-form>

@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import {useRoute, useRouter} from "vue-router";
+import {useRouter} from "vue-router";
 import {onMounted, ref} from "vue";
-import {UserType} from "../modules/user";
 import myAxios from "../plugins/myAxios.ts";
-import qs from "qs";
 import {Toast} from "vant";
-import axios from "axios";
 import {getCurrentUser} from "../services/user.ts";
+import {UserType} from "../modules/user";
+import {getCurrentUserState} from "../states/user.ts";
 
 // const user = {
 //   id: 1,
@@ -23,21 +22,27 @@ import {getCurrentUser} from "../services/user.ts";
 const router = useRouter();
 const user = ref({});
 
-onMounted(async ()=>{
-user.value = await getCurrentUser();
+onMounted(async () => {
+ let currentUser = await getCurrentUser();
+ if(currentUser){
+   if(currentUser.tags){
+     currentUser.tags = JSON.parse(currentUser.tags);
+   }
+   user.value = currentUser;
+ }
 })
 
-const doLogOut =async ()=>{
+const doLogOut = async () => {
   const res = await myAxios.post("/user/logout");
-  if(res){
+  if (res) {
     alert("确认退出？");
     Toast.success("退出成功");
     window.location.reload();
-  }else {
+  } else {
     Toast.fail("退出失败");
   }
 }
-const toEdit = (editKey: string,editName: string,currentValue: string) => {
+const toEdit = (editKey: string, editName: string, currentValue: string) => {
   router.push({
     path: '/user/edit',
     query: {
@@ -52,10 +57,22 @@ const toEdit = (editKey: string,editName: string,currentValue: string) => {
 <template>
   <template v-if="user">
     <van-cell title="当前用户" :value="user?.username"/>
-  <van-cell title="修改信息" is-link to="/user/update"/>
-  <van-cell title="我创建的队伍" is-link to="/user/team/create"/>
-  <van-cell title="我加入的队伍" is-link to="/user/team/join"/>
-    <van-button type="danger" @click="doLogOut" block>退出登录</van-button>
+    <van-cell title="头像">
+      <img style="height: 100px" :src="user.avatarUrl">
+    </van-cell>
+    <van-cell title="我的标签">
+      <van-tag plain type="danger" v-for="tag in user.tags" style="margin-right: 8px;margin-top: 8px">
+        {{ tag }}
+      </van-tag>
+    </van-cell>
+    <van-cell title="修改信息" is-link to="/user/update"/>
+    <van-cell title="我创建的队伍" is-link to="/user/team/create"/>
+    <van-cell title="我加入的队伍" is-link to="/user/team/join"/>
+
+    <div style="margin: 30px 16px 16px;">
+      <van-button style="margin-top:20px" type="danger" @click="doLogOut" block>退出登录</van-button>
+    </div>
+
 
   </template>
 

@@ -23,7 +23,7 @@ const loadData = async () =>{
     })
         .then(function (response){
           console.log('/user/match succeed',response)
-          Toast.success('请求成功！');
+          Toast.success('匹配成功！');
           return response?.data;
         })
         .catch(function (error){
@@ -40,7 +40,6 @@ const loadData = async () =>{
     })
         .then(function (response){
           console.log('/user/recommend succeed',response);
-          Toast.success('请求成功');
           console.log(response);
           return response?.data?.records;
         })
