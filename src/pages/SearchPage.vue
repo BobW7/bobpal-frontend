@@ -51,6 +51,16 @@ const originTagList = [
       { text: '大四', id: '大四' },
     ],
   },
+  {
+    text: '编程语言',
+    children: [
+      { text: 'java', id: 'java' },
+      { text: 'cpp', id: 'cpp' },
+      { text: 'python', id: 'python' },
+      { text: 'go', id: 'go' },
+      { text: 'php', id: 'php' },
+    ],
+  },
 
 ];
 // 标签列表,封装成响应式对象

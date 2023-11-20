@@ -14,6 +14,7 @@ const {tags} = route.query
 //用户列表
 //const userList = ref([MockUser]);
 const userList = ref([]);
+const loading = ref(false);
 
 //url是后端接口地址
 //@RequestMapping("/user")
@@ -30,7 +31,7 @@ const userList = ref([]);
 onMounted(async ()=>{
  const userListData:UserType = await myAxios.get('/user/search/tags',{
     params:{
-      tagNameList:tags
+      tagNameList:tags,
     },
     paramsSerializer: params => {
       return qs.stringify(params,{indices:false})
@@ -80,7 +81,7 @@ const MockUser = {
 </script>
 
 <template>
- <user-card-list :user-list="userList"/>
+ <user-card-list :user-list="userList" :loading="loading"/>
   <van-empty v-if="!userList || userList.length < 1" description="搜索结果为空"/>
 
 
