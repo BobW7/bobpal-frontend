@@ -32,7 +32,6 @@ const listTeam =async (val = '')=>{
   });
   if(res?.code === 0){
     teamList.value=res.data;
-    Toast.success('加载队伍成功！');
   }else {
     Toast.fail('加载队伍失败！');
   }

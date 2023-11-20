@@ -8,6 +8,7 @@ import Vant from 'vant';
 import 'vant/lib/index.css';
 import routes from "./config/route.ts";
 import * as VueRouter from 'vue-router';
+import '../global.css';
 const app = createApp(App);
 
 app.use(Vant);

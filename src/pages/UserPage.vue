@@ -27,6 +27,16 @@ onMounted(async ()=>{
 user.value = await getCurrentUser();
 })
 
+const doLogOut =async ()=>{
+  const res = await myAxios.post("/user/logout");
+  if(res){
+    alert("确认退出？");
+    Toast.success("退出成功");
+    window.location.reload();
+  }else {
+    Toast.fail("退出失败");
+  }
+}
 const toEdit = (editKey: string,editName: string,currentValue: string) => {
   router.push({
     path: '/user/edit',
@@ -45,6 +55,8 @@ const toEdit = (editKey: string,editName: string,currentValue: string) => {
   <van-cell title="修改信息" is-link to="/user/update"/>
   <van-cell title="我创建的队伍" is-link to="/user/team/create"/>
   <van-cell title="我加入的队伍" is-link to="/user/team/join"/>
+    <van-button type="danger" @click="doLogOut" block>退出登录</van-button>
+
   </template>
 
 

@@ -1,6 +1,5 @@
 <template>
-  <!--todo 动态显示页面标题，微调格式-->
-  <van-nav-bar
+  <van-nav-bar v-if="route.path !== '/user/login'"
       :title=title
       left-text=""
       right-text="按钮"
@@ -17,7 +16,7 @@
   <div id="content">
     <router-view/>
   </div>
-  <van-tabbar route @change="onChange">
+  <van-tabbar v-if="route.path !== '/user/login'" route @change="onChange">
     <van-tabbar-item icon="home-o" to="/" name="index">主页</van-tabbar-item>
     <van-tabbar-item icon="search" to="/team" name="team">队伍页</van-tabbar-item>
     <van-tabbar-item icon="friends-o" to="/user" name="user">个人</van-tabbar-item>

@@ -10,6 +10,8 @@ export type TeamType = {
     expireTime?: Date;
     maxNum: number;
     password?: string;
+    hasJoinNum?: number;
+    hasJoin:boolean;
     // todo 定义枚举值，更规范
     status: number;
     createTime: Date;
