@@ -12,30 +12,29 @@ const teamList = ref([]);
 const searchText = ref('');
 
 //只会在页面加载时触发一次
-onMounted(  () =>{
- listTeam();
+onMounted(() => {
+  listTeam();
 })
 
-const onSearch =async (val) => {
+const onSearch = async (val) => {
   await listTeam(val)
 };
 /**
  * 搜索队伍
  * @param val
  */
-const listTeam =async (val = '')=>{
-  const res = await myAxios.get("/team/list/my/create",{
+const listTeam = async (val = '') => {
+  const res = await myAxios.get("/team/list/my/create", {
     params: {
-      searchText:val,
+      searchText: val,
     }
   });
-  if(res?.code === 0){
-    teamList.value=res.data;
-  }else {
-    Toast.fail('加载队伍失败！');
+  if (res?.code === 0) {
+    teamList.value = res.data;
+  } else {
   }
 }
-const doJoinTeam = () =>{
+const doJoinTeam = () => {
   router.push({
     path: "/team/add"
   })

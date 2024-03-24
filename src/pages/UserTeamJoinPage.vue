@@ -13,27 +13,26 @@ const searchText = ref('');
 
 
 //只会在页面加载时触发一次
-onMounted(  () =>{
- listTeam();
+onMounted(() => {
+  listTeam();
 })
 
-const onSearch =async (val) => {
+const onSearch = async (val) => {
   listTeam(val)
 };
 /**
  * 搜索队伍
  * @param val
  */
-const listTeam =async (val = '')=>{
-  const res = await myAxios.get("/team/list/my/joined",{
+const listTeam = async (val = '') => {
+  const res = await myAxios.get("/team/list/my/joined", {
     params: {
-      searchText:val,
+      searchText: val,
     }
   });
-  if(res?.code === 0){
-    teamList.value=res.data;
-  }else {
-    Toast.fail('加载队伍失败！');
+  if (res?.code === 0) {
+    teamList.value = res.data;
+  } else {
   }
 }
 
