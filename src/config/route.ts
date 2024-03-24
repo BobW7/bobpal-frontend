@@ -17,20 +17,20 @@ import UserRegisterPage from "../pages/UserRegisterPage.vue";
 // @ts-ignore
 const routes =
     [
-        {path: '/', title:'找队友', component: Index},
+        {path: '/user/login', component: UserLoginPage},
+        {path: '/', title: '找队友', component: Index},
         {path: '/team', title: '找队伍', component: TeamPage},
-        {path: '/user', title: '个人中心',component: UserPage},
-        {path: '/user/update', title: '修改信息',component: UserUpdatePage},
-        {path: '/search', title: '查找用户',component: SearchPage},
+        {path: '/user', title: '个人中心', component: UserPage},
+        {path: '/user/update', title: '修改信息', component: UserUpdatePage},
+        {path: '/search', title: '查找用户', component: SearchPage},
         {path: '/user/list', component: SearchResultPage},
-        {path: '/user/edit', title: '编辑',component: UserEditPage},
-        {path: '/user/login',component: UserLoginPage},
-        {path: '/team/add', title: '创建队伍',component: TeamAddPage},
+        {path: '/user/edit', title: '编辑', component: UserEditPage},
+        {path: '/team/add', title: '创建队伍', component: TeamAddPage},
         {path: '/team/update', component: TeamUpdatePage},
-        {path: '/user/team/create', title: '我创建的',component: UserTeamCreatePage},
-        {path: '/user/team/join', title: '我加入的',component: UserTeamJoinPage},
-        {path: '/user/register/selectTags', title: '选择标签',component: UserRegistSelectTag},
-        {path: '/user/register', title: '注册',component: UserRegisterPage},
+        {path: '/user/team/create', title: '我创建的', component: UserTeamCreatePage},
+        {path: '/user/team/join', title: '我加入的', component: UserTeamJoinPage},
+        {path: '/user/register/selectTags', title: '选择标签', component: UserRegistSelectTag},
+        {path: '/user/register', title: '注册', component: UserRegisterPage},
 
     ]
 

@@ -13,31 +13,33 @@ const checkPassword = ref('');
 const planetCode = ref('');
 
 const onSubmit = async () => {
- const res = await myAxios.post('/user/register',{
-   userAccount:userAccount.value,
-   userPassword:userPassword.value,
-   checkPassword:checkPassword.value,
-   planetCode:planetCode.value,
+  const res = await myAxios.post('/user/register', {
+    userAccount: userAccount.value,
+    userPassword: userPassword.value,
+    checkPassword: checkPassword.value,
+    planetCode: planetCode.value,
   })
-  console.log(res,'注册请求');
-  if(res.code === 0 && res.data > 0){
+  console.log(res, '注册请求');
+  //@ts-ignore
+  if (res.code === 0 && res.data > 0) {
     Toast.success('注册成功');
     router.back();
-  }else{
-    Toast.fail('注册失败');
+  } else {
+    //@ts-ignore
+    Toast.fail('注册失败！' + (res.description ? `${res.description}` : ''));
   }
 };
 </script>
 
 <template>
   <van-form @submit="onSubmit">
-      <van-field
-          v-model="userAccount"
-          name="userAccount"
-          label="账号"
-          placeholder="请输入账号"
-          :rules="[{ required: true, message: '请填写账号' }]"
-      />
+    <van-field
+        v-model="userAccount"
+        name="userAccount"
+        label="账号"
+        placeholder="请输入账号"
+        :rules="[{ required: true, message: '请填写账号' }]"
+    />
 
     <van-field
         v-model="userPassword"

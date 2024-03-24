@@ -1,4 +1,4 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 //引入router组件
 
 import App from './App.vue'
@@ -9,6 +9,7 @@ import 'vant/lib/index.css';
 import routes from "./config/route.ts";
 import * as VueRouter from 'vue-router';
 import '../global.css';
+
 const app = createApp(App);
 
 app.use(Vant);

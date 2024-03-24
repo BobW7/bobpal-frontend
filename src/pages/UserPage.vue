@@ -4,8 +4,6 @@ import {onMounted, ref} from "vue";
 import myAxios from "../plugins/myAxios.ts";
 import {Toast} from "vant";
 import {getCurrentUser} from "../services/user.ts";
-import {UserType} from "../modules/user";
-import {getCurrentUserState} from "../states/user.ts";
 
 // const user = {
 //   id: 1,
