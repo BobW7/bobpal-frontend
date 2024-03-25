@@ -11,7 +11,6 @@ const userAccount = ref('');
 const userPassword = ref('');
 const checkPassword = ref('');
 const planetCode = ref('');
-
 const onSubmit = async () => {
   const res = await myAxios.post('/user/register', {
     userAccount: userAccount.value,

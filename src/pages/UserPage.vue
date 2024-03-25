@@ -58,7 +58,7 @@ const toEdit = (editKey: string, editName: string, currentValue: string) => {
     <van-cell title="头像">
       <img style="height: 100px" :src="user.avatarUrl">
     </van-cell>
-    <van-cell title="我的标签">
+    <van-cell title="我的标签" is-link to="/user/updateTags">
       <van-tag plain type="danger" v-for="tag in user.tags" style="margin-right: 8px;margin-top: 8px">
         {{ tag }}
       </van-tag>
