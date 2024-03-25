@@ -12,7 +12,7 @@ import UserTeamJoinPage from "../pages/UserTeamJoinPage.vue";
 import UserUpdatePage from "../pages/UserUpdatePage.vue";
 import UserRegistSelectTag from "../pages/UserRegistSelectTag.vue";
 import UserRegisterPage from "../pages/UserRegisterPage.vue";
-import UserUpdateTagsPage from "../pages/UserUpdateTagsPage.vue";
+import UserTagPage from "../pages/UserTagPage.vue";
 
 
 // @ts-ignore
@@ -23,7 +23,7 @@ const routes =
         {path: '/team', title: '找队伍', component: TeamPage},
         {path: '/user', title: '个人中心', component: UserPage},
         {path: '/user/update', title: '修改信息', component: UserUpdatePage},
-        {path: '/user/updateTags', title: '修改信息', component: UserUpdateTagsPage},
+        {path: '/user/updateTags', title: '修改信息', component: UserTagPage},
         {path: '/search', title: '查找用户', component: SearchPage},
         {path: '/user/list', component: SearchResultPage},
         {path: '/user/edit', title: '编辑', component: UserEditPage},
