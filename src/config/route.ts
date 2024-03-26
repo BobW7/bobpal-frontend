@@ -12,16 +12,18 @@ import UserTeamJoinPage from "../pages/UserTeamJoinPage.vue";
 import UserUpdatePage from "../pages/UserUpdatePage.vue";
 import UserRegistSelectTag from "../pages/UserRegistSelectTag.vue";
 import UserRegisterPage from "../pages/UserRegisterPage.vue";
+import UserUpdateTagsPage from "../pages/UserUpdateTagsPage.vue";
 
 
 // @ts-ignore
 const routes =
     [
-        {path: '/user/login', component: UserLoginPage},
         {path: '/', title: '找队友', component: Index},
+        {path: '/user/login', component: UserLoginPage},
         {path: '/team', title: '找队伍', component: TeamPage},
         {path: '/user', title: '个人中心', component: UserPage},
         {path: '/user/update', title: '修改信息', component: UserUpdatePage},
+        {path: '/user/updateTags', title: '修改信息', component: UserUpdateTagsPage},
         {path: '/search', title: '查找用户', component: SearchPage},
         {path: '/user/list', component: SearchResultPage},
         {path: '/user/edit', title: '编辑', component: UserEditPage},
