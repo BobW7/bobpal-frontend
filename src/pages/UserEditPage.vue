@@ -18,16 +18,16 @@ const editUser = ref({
 const reg_tel = /^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\d{8}$/;
 const onSubmit = async () => {
   const currentUser = await getCurrentUser();
-  let response = await myAxios.put("/user/update", {
+  let response = await myAxios.post("/user/update", {
     'id': currentUser.id,
     [editUser.value.editKey]: editUser.value.currentValue,
     code: code.value
   });
-  if (response.data.code === 0) {
+  if (response.code === 0) {
     Toast.success("修改成功")
     await router.replace("/user/update");
   } else {
-    Toast.fail("修改失败" + (response.data.description ? `,${response.data.description}` : ''))
+    Toast.fail("修改失败" + (response.description ? `,${response.description}` : ''))
   }
 };
 const lock = ref(true)
